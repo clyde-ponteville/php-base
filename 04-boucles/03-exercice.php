@@ -11,18 +11,21 @@
 <body>
     
 <?php 
+
+//Taille du tableau
+$size = 15; 
 //Création tableaux
 echo "<table>";
 //Création en tete tableaux
 echo "<th>x</th>";
-for ($z=0; $z <= 10 ; $z++) { 
+for ($z=0; $z <= $size ; $z++) { 
     echo "<th>".$z."</th>";
 }
 //Création body tableau
-for ($i=0; $i <= 10; $i++) {    
+for ($i=0; $i <= $size; $i++) {    
     echo "<tr>";
     echo "<th>$i</th>";    
-    for ($j=0; $j <= 10 ; $j++) {         
+    for ($j=0; $j <= $size; $j++) {         
         echo  "<td>".$j * $i."</td>"; 
     }
 }

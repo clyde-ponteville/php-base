@@ -6,7 +6,6 @@ th,tr,td{
     height: 50px;    
 }
 
-
 tr:nth-child(odd) th:nth-child(odd){
     background-color: #dfe6e9;
 }
