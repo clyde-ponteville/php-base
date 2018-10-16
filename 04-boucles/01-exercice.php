@@ -30,7 +30,7 @@ echo '3. Ecrire le code permettant de trouver le PGCD de 2 nombres';
 // 91 % 39 = 13;
 // 39 % 13 = 0;
 
-echo gmp_gcd(845, 312);
+// echo gmp_gcd(845, 312);
 
 $nombre1 = 845;
 $nombre2 = 312;
