@@ -117,19 +117,37 @@ foreach ($eleves as $value) {
 echo '<br><br>';
 echo "<h2>6/ Tri à bulles</h2>";
 
-foreach ($eleves as $value) { 
-    echo  $value["nom"]; 
-    foreach ($value['notes'] as $key => $nombre) {        
-        $tst = $nombre;
 
-        if ($nombre < $tst) {
-            
-            
-        }
-        echo " ".$nombre.", ";
+foreach ($eleves as $value) { 
+    echo  $value["nom"]." ";
+    asort($value['notes']);
+    
+    // for ($i=0; $i < count($value['notes']) ; $i++) { 
+    //     $val1 = $value['notes'][$i];
+    //     $val2 =  $value['notes'][$i+1];
+    //     $valR = $val1;        
+
+    //     if($val1 < $val2){
+    //         $val1 = $val2;
+    //         $val2 = $valR;
+
+    //         var_dump("val1 ".$val1);
+    //         var_dump("val2 ".$val2);
+    //         var_dump("valR ".$valR);
+    //         break;
+    //     }else{
+    //         $val1 = $valR;
+    //     }
+        
+    // }
+    foreach ($value['notes'] as $key => $notes) {
+        
+        $tst = $notes;
+        
+        echo $tst." ";
         
     }
-echo '<br>';
+    echo '<br>';
 }
 
 
