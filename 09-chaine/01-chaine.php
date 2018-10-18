@@ -10,11 +10,9 @@ foreach ($array_keywords as $word) {
     echo strtoupper($letter);
 }
 
+
 echo "<br>";
-
 echo "<h2>Les conjugaison</h2>";
-
-
 conjug("jouer");
 
 function conjug($verbe){
