@@ -37,7 +37,11 @@ function calcul($nbr1, $nbr2){
                     $result = $nbr1 - $nbr2;
                     break;
                 case 'divi':
-                    $result = $nbr1 / $nbr2;
+                    if ($nbr2 == 0) {
+                        $result = "Attention division par 0";
+                    }else{
+                        $result = $nbr1 / $nbr2;
+                    }
                     break;
                 case 'multi':
                     $result = $nbr1 * $nbr2;
