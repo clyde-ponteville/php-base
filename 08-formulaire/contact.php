@@ -41,6 +41,7 @@ if (isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['message'])
         exit('Votre message est trop court');
     }
     
+    mail($email, $sujet,$message);
     echo "Votre message a bien été envoyé !!!!!!!!!!!";
 }
 
