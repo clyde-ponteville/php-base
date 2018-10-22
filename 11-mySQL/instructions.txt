@@ -19,3 +19,27 @@ INSERT INTO pizza (name, price, image)
            ('Savoyarde',13,'img/pizzas/savoyarde.jpg'),
            ('Bolognaise',10,'img/pizzas/bolognaise.jpg'),
            ('Cannibale',10,'img/pizzas/cannibale.jpg');
+
+-- Récup toutes les pizzas
+SELECT * FROM pizza;
+
+-- Récup les pizzas dont le prix est inférieur à 10
+SELECT * FROM pizza WHERE price < 10;
+
+-- Récup les pizzas qui n'ont pas d'images
+SELECT * FROM pizza WHERE image is NULL;
+
+-- Trier les pizzas de la plus cher à la moins cher
+SELECT * FROM pizza ORDER BY price DESC;
+
+-- Récup 3 pizzas dans un ordre aléa
+SELECT * FROM pizza ORDER BY RAND() LIMIT 3;
+
+-- Compter le nombre de pizza
+SELECT COUNT(id) FROM pizza;
+
+-- Récup la pizza la plus cher
+SELECT name, price FROM pizza WHERE price = (SELECT MAX(price) FROM pizza);
+
+-- Calculer la moyenne de prix des pizzas
+SELECT AVG(price) FROM pizza;
