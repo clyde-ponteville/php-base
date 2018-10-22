@@ -7,3 +7,15 @@ Pizzeria :
 ---------------- BONUS
 - order -> (id), user_id, ordered_at, reference, address_id
 - order_detail -> (id), pizza_name, pizza_price, size, quantity, order_id
+
+
+liste des pizza à insérer:
+
+INSERT INTO pizza (name, price, image) 
+	VALUES ('Reine', 8, 'img/pizzas/reine.jpg'),
+    	   ('Texan',10,'img/pizzas/texan.jpg'),
+    	   ('4 fromages',9,'img/pizzas/4-fromages.jpg'),
+           ('Végétarienne',11,'img/pizzas/vegetarienne.jpg'),
+           ('Savoyarde',13,'img/pizzas/savoyarde.jpg'),
+           ('Bolognaise',10,'img/pizzas/bolognaise.jpg'),
+           ('Cannibale',10,'img/pizzas/cannibale.jpg');
