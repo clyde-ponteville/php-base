@@ -43,3 +43,10 @@ SELECT name, price FROM pizza WHERE price = (SELECT MAX(price) FROM pizza);
 
 -- Calculer la moyenne de prix des pizzas
 SELECT AVG(price) FROM pizza;
+
+-- pizza
+SELECT pizza.name, pizza.price, size.name taille, size.price supplement, (pizza.price + size.price) AS total
+FROM pizza_has_size
+INNER JOIN pizza ON pizza.id = pizza_has_size.pizza_id
+INNER JOIN size ON size.id = pizza_has_size.size_id
+ORDER BY pizza.id, size.id ASC
