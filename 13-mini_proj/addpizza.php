@@ -4,7 +4,7 @@
 ?>
 
 <!-- Begin page content -->
-<main role="main" class="container">
+<main class="container">
     <h1 class="mt-5">Ajouter une pizza</h1>
 
     <form action="" method="post" class="form-group">
