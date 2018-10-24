@@ -18,6 +18,9 @@
 </head>
 
 <body>
+    <?php 
+        $page = basename($_SERVER['REQUEST_URI'], '.php');    
+    ?>
     <header>
     <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -27,16 +30,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
+                    <li class="nav-item <?= ($page === 'index') ? 'active': ''; ?>">
+                        <a class="nav-link" href="index.php">Accueil</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <?= ($page === 'pizza_list') ? 'active': ''; ?>">
                         <a class="nav-link" href="pizza_list.php">Liste des pizzas</a>
                     </li>                    
-                    <li class="nav-item">
+                    <li class="nav-item <?= ($page === 'addpizza') ? 'active': ''; ?>">
                         <a class="nav-link" href="addpizza.php">Ajout pizza</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <?= ($page === 'contact') ? 'active': ''; ?>">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>
