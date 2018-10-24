@@ -1,34 +1,15 @@
-# PHP Base
+# Pizza Store PDO SQL
 
-Slide : https://slides.com/matthieumota/php
+- Récupérer un backup de la Bdd pizzastore
+L'intérêt est de pouvoir recréer la structure de la base à tous moment.
 
-Pour travailler, vous avez besoin de forker ce dépôt.
-Ensuite, clonez votre dépôt sur votre machine.
-Créez une branche avec votre prénom.
+Au niveau du PHP, on va crée quelques fichiers / dossier:
+- config/database.php -> Connexion à la base de données en PDO, sera inclus dans tous les fichiers PHP
+- partials/header.php
+- partials/footer.php
+- index.php -> la page d'accueil du site
+- pizza_list.php -> Lister toutes les pizzas de la base de données
+- pizza_single.php -> La page d'une pizza seule
 
-```
-git branch prenom
-```
-
-Vous pouvez ajouter un remote upstream (en plus de votre origin) vers ce dépôt (DIW 10) avec :
-
-```
-git remote add upstream URL_DU_DEPOT
-```
-
-Vous avez maintenant 2 branches master, celle de ce dépôt (du formateur) et de votre dépôt.
-Parfois, vous voudrez récupérer une mise à jour du dépôt :
-
-```
-# Mets à jour la branche master
-git checkout master
-git fetch upstream
-git merge upstream/master
-git push origin master
-# Revenir sur votre branche
-git checkout prenom
-# Attention à cette commande, la version de l'élève revient au même niveau que celle du formateur (Perte potentielle)
-git rebase master
-```
-
-N'oubliez pas de toujours revenir sur votre branche lorsque vous travaillez sur votre propre code. Votre branche master ne doit servir que pour stocker les cours et le code du formateur.
+Au niveau du FRONT
+- assets/ -> Dossier qui contiendra le css, le js, les images
