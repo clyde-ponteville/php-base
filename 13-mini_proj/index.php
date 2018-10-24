@@ -4,7 +4,7 @@
 ?>
 
 <!-- Begin page content -->
-<main role="main" class="container">
+<main class="container">
     <h1 class="mt-5">Pizzeria</h1>
     <p class="lead">Les pizzas</p>
 </main>

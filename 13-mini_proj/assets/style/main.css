@@ -1,0 +1,38 @@
+.card-body h3{
+    text-align: center;
+}
+
+.pizza{
+    cursor: pointer;
+}
+
+.box-shadow:hover{
+    box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.75);
+}
+.pizza img{
+    width: 100%;
+    overflow: hidden;
+}
+
+.imgSize{
+    height: 250px;
+}
+.card-body{
+    background-color: white;
+    color: #000;
+}
+
+.boxPizzaSingle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxPizzaSingle img{
+    padding: 2rem;
+}
+
+a:link{ 
+    text-decoration:none;     
+} 

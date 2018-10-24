@@ -32,10 +32,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pizza_list.php">Liste des pizzas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pizza_single.php">Pizza</a>
-                    </li>
+                    </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="addpizza.php">Ajout pizza</a>
                     </li>
