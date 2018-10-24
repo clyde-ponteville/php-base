@@ -1,5 +1,5 @@
 <?php 
-    $title = 'PizzaStore - Liste Pizza';
+    $title = 'PizzaStore - Nos Pizzas';
     require(__DIR__.'/partials/header.php');    
 ?>
 
@@ -9,7 +9,7 @@
 
     <div class="row list">
         <?php 
-            require 'config/database.php';
+            require(__DIR__.'/config/database.php');
             $query = $db->prepare('SELECT * FROM pizza');
             $query->execute();
             $result = $query->fetchAll();

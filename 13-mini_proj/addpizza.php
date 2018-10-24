@@ -1,5 +1,5 @@
 <?php 
-    $title = 'Sticky - Add Pizza';
+    $title = 'PizzaStore - Ajouter Pizza';
     require(__DIR__.'/partials/header.php');    
 ?>
 

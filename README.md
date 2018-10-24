@@ -5,6 +5,7 @@ L'intérêt est de pouvoir recréer la structure de la base à tous moment.
 
 Au niveau du PHP, on va crée quelques fichiers / dossier:
 - config/database.php -> Connexion à la base de données en PDO, sera inclus dans tous les fichiers PHP
+- config/config.php -> Stocke toutes les variables globales
 - partials/header.php
 - partials/footer.php
 - index.php -> la page d'accueil du site
