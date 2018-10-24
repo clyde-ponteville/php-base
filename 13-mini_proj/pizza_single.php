@@ -4,11 +4,11 @@
 ?>
 
 <!-- Begin page content -->
-<main class="container">
-    <div class="boxPizzaSingle">
+<main class="container d-flex">
+    <div class="col-md-6 boxPizzaSingle">
 
         <?php 
-            require 'config/database.php';
+            require_once(__DIR__.'/config/database.php');
 
             if (isset($_GET['name'])) {
                 $name = htmlspecialchars($_GET['name']);
@@ -21,12 +21,43 @@
                 
                 echo "<h2 class='mt-5'>".$result['name']."</h2>";    
                 echo "<img src='assets/".$result['image']."' alt=".$result['name'].">";
+                
             }        
         ?>
-
-    <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
+        <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
     </div>
+    <div class="col-md-6">
+        <select class='mt-5' name="size" id="size">
+            <option value="">Nos tailles</option>
+            <?php                 
 
+                if (isset($_GET['name'])) {
+                    $name = htmlspecialchars($_GET['name']);
+                    // $name = $db->quote($name);           
+                
+                    $getSize = $db->prepare('SELECT pizza.name, pizza.price, size.name taille, size.price supplement, (pizza.price + size.price) AS total
+                    FROM pizza_has_size
+                    INNER JOIN pizza ON pizza.id = pizza_has_size.pizza_id
+                    INNER JOIN size ON size.id = pizza_has_size.size_id
+                    WHERE pizza.name = :pizza
+                    ORDER BY pizza.id, size.id ASC');                    
+                    
+                    $getSize->bindValue(':pizza', $name, PDO::PARAM_STR);    
+                    $getSize->execute();
+                    $result = $getSize->fetchAll();
+
+                    foreach ($result as $size) {
+                        echo '<option value="">'.strtoupper($size['taille']).'</option>';
+                    }
+
+                }   
+            
+            
+            
+            ?>
+        </select>
+    </div>
+    
 
     
 </main>
