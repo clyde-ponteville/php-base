@@ -4,8 +4,15 @@
 ?>
 
 <!-- Begin page content -->
-<main role="main" class="container">
-    <h1 class="mt-5">Pizza</h1>
+<main class="container">
+    <div class="boxPizzaSingle">
+
+    
+        <h2 class="mt-5">Nom pizza</h2>    
+        <img src="assets/img/pizzas/reine.jpg" alt="">
+    </div>
+
+
 
     
 </main>
