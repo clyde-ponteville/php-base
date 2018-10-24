@@ -16,7 +16,7 @@
 
             foreach ($result as $pizza) {
                 echo '<div class="col-md-4 pizza">';
-                    echo '<a href="#"><div class="card mb-4 box-shadow">'; 
+                    echo '<a href="pizza_single.php?name='.$pizza['name'].'"><div class="card mb-4 box-shadow">'; 
                         echo '<div class="imgSize">';               
                             echo "<img class='card-img-top' src='assets/".$pizza['image']."' alt=".$pizza['name'].">";
                         echo '</div>';
