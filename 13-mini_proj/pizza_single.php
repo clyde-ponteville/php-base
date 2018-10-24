@@ -27,35 +27,39 @@
         <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
     </div>
     <div class="col-md-6">
+        <?php  
+            if (isset($_GET['name'])) {
+                $name = htmlspecialchars($_GET['name']);
+                // $name = $db->quote($name);           
+            
+                $getSize = $db->prepare('SELECT pizza.name, pizza.price, size.name taille, size.price supplement, (pizza.price + size.price) AS total
+                FROM pizza_has_size
+                INNER JOIN pizza ON pizza.id = pizza_has_size.pizza_id
+                INNER JOIN size ON size.id = pizza_has_size.size_id
+                WHERE pizza.name = :pizza
+                ORDER BY pizza.id, size.id ASC');                    
+                
+                $getSize->bindValue(':pizza', $name, PDO::PARAM_STR);    
+                $getSize->execute();
+                $result = $getSize->fetchAll(); 
+                
+            }   
+            ?>
         <select class='mt-5' name="size" id="size">
             <option value="">Nos tailles</option>
-            <?php                 
-
-                if (isset($_GET['name'])) {
-                    $name = htmlspecialchars($_GET['name']);
-                    // $name = $db->quote($name);           
-                
-                    $getSize = $db->prepare('SELECT pizza.name, pizza.price, size.name taille, size.price supplement, (pizza.price + size.price) AS total
-                    FROM pizza_has_size
-                    INNER JOIN pizza ON pizza.id = pizza_has_size.pizza_id
-                    INNER JOIN size ON size.id = pizza_has_size.size_id
-                    WHERE pizza.name = :pizza
-                    ORDER BY pizza.id, size.id ASC');                    
-                    
-                    $getSize->bindValue(':pizza', $name, PDO::PARAM_STR);    
-                    $getSize->execute();
-                    $result = $getSize->fetchAll();
-
-                    foreach ($result as $size) {
-                        echo '<option value="">'.strtoupper($size['taille']).'</option>';
-                    }
-
-                }   
-            
-            
-            
+            <?php
+                foreach ($result as $size) {
+                    echo '<option value='.$size['taille'].'>'.strtoupper($size['taille']).'</option>';
+                }
             ?>
         </select>
+
+        <div>
+            <span>Prix: <?= $size['price'] ?></span>
+            <?php 
+
+            ?>
+        </div>
     </div>
     
 
