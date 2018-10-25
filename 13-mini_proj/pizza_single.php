@@ -26,7 +26,7 @@
         ?>
         <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
     </div>
-    <div class="col-md-6">
+    <div class="boxPrice col-md-6">
         <?php  
             if (isset($_GET['name'])) {
                 $name = htmlspecialchars($_GET['name']);
@@ -45,20 +45,30 @@
                 
             }   
             ?>
-        <select class='mt-5' name="size" id="size">
-            <option value="">Nos tailles</option>
+        <select class='custom-select' name="size" id="size">
+            <option selected>Nos tailles</option>
             <?php
-                foreach ($result as $size) {
-                    echo '<option value='.$size['taille'].'>'.strtoupper($size['taille']).'</option>';
-                }
-            ?>
+                foreach ($result as $size) { ?>
+                    <option value="<?=$size['taille']?>"><?= strtoupper($size['taille'])?></option>;
+            <?php  } ?>
+            
         </select>
 
-        <div>
-            <span>Prix: <?= $size['price'] ?></span>
+        <div class="priceSingle">
+            <span>Prix: <?= $size['price'] ?> €</span>
+            
             <?php 
-
+                $i = 0;
+                $j = 10;
+                foreach ($result as $supp) { ?>
+                    <span class="supp" id=<?= $i?>>+<?= $supp['supplement'] ?> €</span> 
+                    <span id=<?= $j?> class="total">Total : <?= $supp['total'] ?> €</span>                    
+            <?php 
+                $i++;
+                $j++;
+                } 
             ?>
+                <button type="button" class="btn btn-success">Commander</button>
         </div>
     </div>
     
