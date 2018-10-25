@@ -19,10 +19,11 @@
                     echo '<a href="pizza_single.php?name='.$pizza['name'].'"><div class="card mb-4 box-shadow">'; 
                         echo '<div class="imgSize">';               
                             echo "<img class='card-img-top' src='assets/".$pizza['image']."' alt=".$pizza['name'].">";
+                            echo '<span class="priceList" style= display:block>'.$pizza['price'].' €</span>'; 
                         echo '</div>';
                         echo '<div class=card-body>';
-                            echo '<h3 style= display:block>'.$pizza['name'].'</h3>';  
-                            echo '<span style= display:block>'.$pizza['price'].' €</span>'; 
+                            echo '<h3 style= display:block>'.$pizza['name'].'</h3>';
+                            echo '<button type="button" class="btn btn-success">Commander</button>';  
                         echo '</div>';
                     echo '</div></a>';
                 echo '</div>';
