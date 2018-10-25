@@ -19,10 +19,20 @@
                 $query->execute();
                 $result = $query->fetch();
                 
+                if ($result === false) {
+                    http_response_code(404);?>
+                    <h2 class='mt-5'>404 - Redirection dans 5 secondes</h2>
+                    <span>Page introuvable</span>  
+                    <script> setTimeout(() => {
+                        window.location = 'pizza_list.php';
+                    }, 5000);</script>
+
+                    <?php die();
+                }        
                 echo "<h2 class='mt-5'>".$result['name']."</h2>";    
                 echo "<img src='assets/".$result['image']."' alt=".$result['name'].">";
                 
-            }        
+            }
         ?>
         <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
     </div>
