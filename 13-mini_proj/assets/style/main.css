@@ -1,6 +1,15 @@
 *{
     font-family: 'Roboto', sans-serif;
 }
+
+body{
+    background-image: url('../img/background.jpg');
+    color: #FFF;
+    background-attachment: fixed;
+    
+
+}
+
 .card-body{
     text-align: center;
     display: flex;
@@ -11,6 +20,9 @@
 .pizza{
     cursor: pointer;
     
+}
+.list:last-child{
+    margin-bottom: 5rem;
 }
 .priceList{    
     position: absolute;    
