@@ -44,8 +44,16 @@ if (!empty($_POST)) {
     $finfo = finfo_open(FILEINFO_MIME_TYPE); // Permet d'ouvrir un fichier
     $mimeType = finfo_file($finfo, $file); // ouvre le fichier et renvoie image/jpg
     $allowedExtensions = ['image/jpg','image/jpeg','image/png','image/gif'];
+
     if (!in_array($mimeType, $allowedExtensions)) {
         $errors['2'] = 'errImg=image';
+    }
+
+    //Vérifier la taille du fichier
+    $filesize = filesize($file) / 1024;
+
+    if ($filesize > 400) {
+        $errors['2'] = 'errSize=imgSize';
     }
     
     // Vérifier la catégorie

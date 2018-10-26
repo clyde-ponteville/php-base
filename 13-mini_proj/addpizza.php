@@ -42,44 +42,44 @@
 
     <?php   
 //Erreur formulaire
-    if (isset($_GET)) {
-
-        if (isset($_GET['errName']) == 'name') {
-            ?>
-            <div class="alert alert-danger" role="alert">
-                Le nom n'est pas valide !
-            </div>
-        <?php
-        }
-        if (isset($_GET['errPrice']) == 'price') {
-            ?>
-            <div class="alert alert-danger" role="alert">
-                Le prix n'est pas valide !
-            </div>
-        <?php
-        }
-        if (isset($_GET['errCat']) == 'category') {
-            ?>
-            <div class="alert alert-danger" role="alert">
-                La categorie n'est pas valide !
-            </div>
-        <?php
-        }
-        if (isset($_GET['errImg']) == 'image') {
-            ?>
-            <div class="alert alert-danger" role="alert">
-                L'image n'est pas valide !
-            </div>
-        <?php
-        }
-        if (isset($_GET['errDesc']) == 'description') {
-            ?>
-            <div class="alert alert-danger" role="alert">
-                La description n'est pas valide !
-            </div>
-        <?php
-        }
-    }
+    if (isset($_GET) != empty($_GET)) { ?>
+        <div class="bg-danger error">
+            <span>Erreur: </span>
+            <ul>
+                <?php
+                if (isset($_GET['errName']) == 'name') {
+                    ?>
+                    <li>Le nom n'est pas valide !</li>            
+                <?php
+                }
+                if (isset($_GET['errPrice']) == 'price') {
+                    ?>            
+                    <li>Le prix n'est pas valide !</li>            
+                <?php
+                }
+                if (isset($_GET['errCat']) == 'category') {
+                    ?>
+                    <li>La categorie n'est pas valide !</li>
+                <?php
+                }
+                if (isset($_GET['errImg']) == 'image') {
+                    ?>
+                    <li>L'image doit être au format (jpg, png, jpeg ou gif)</li>            
+                <?php
+                }
+                if (isset($_GET['errSize']) == 'imgSize') {
+                    ?>
+                    <li>L'image ne doit pas dépasser 2Mo</li>            
+                <?php
+                }
+                if (isset($_GET['errDesc']) == 'description') {
+                    ?>
+                    <li>La description n'est pas valide !</li>               
+                <?php
+                }?>
+            </ul>
+        </div>
+    <?php }
         
         if (isset($_GET['done'])) {            
             $done = $_GET['done'];            
