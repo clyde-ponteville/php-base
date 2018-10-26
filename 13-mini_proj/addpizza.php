@@ -9,7 +9,7 @@
 
     <form action="config/insertPizza.php" method="post" class="form-group" enctype="multipart/form-data">
         <label for="name">Nom de la pizza</label><input name="name" type="text" class="form-control">
-        <label for="price">Prix de la pizza</label><input name="price" type="number" step="0.01" class="form-control">
+        <label for="price">Prix de la pizza</label><input name="price" type="number" min="5" max="19.99" step="0.01" class="form-control" placeholder="Prix compris entre 5€ et 19.99€">
         <?php 
             require_once(__DIR__.'/config/database.php');
 
@@ -22,11 +22,21 @@
             <?php } ?>            
             
         </div>
+        <select class="custom-select" name="category" id="select_category">
+            <option selected>Choisissez la categorie</option>
+            <?php 
+                $getCategory = $db->query('SELECT * FROM category');            
+                $dataCategory = $getCategory->fetchAll();
 
-
+                foreach ($dataCategory as $category) { ?>
+                    <option value="<?= $category['id'] ?>"><?= strtoupper($category['name']) ?></option>
+                <?php }
+            ?>
+        </select>
+        <textarea class="form-control" name="description" id="description" rows="3" placeholder='Ajouter une description'></textarea>
         <label for="img">Image</label><input name="img" type="file" class="form-control-file">
         <div class="py-3">
-            <input class="btn btn-primary" name="btnAddPizza" type="submit" value='Ajouter une pizza'>        
+            <input class="col-lg-12 btn btn-success" name="btnAddPizza" type="submit" value='Ajouter une pizza'>        
         </div>
     </form>
 

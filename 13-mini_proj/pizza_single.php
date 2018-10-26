@@ -14,7 +14,11 @@
                 $name = htmlspecialchars($_GET['name']);
                 // $name = $db->quote($name);           
             
-                $query = $db->prepare('SELECT * FROM pizza WHERE name= :pizza');    
+                $query = $db->prepare('SELECT pizza.id, pizza.name, price, category.name category, description, image 
+                                        FROM pizza 
+                                        INNER JOIN category 
+                                        ON pizza.category_id = category.id 
+                                        WHERE pizza.name= :pizza');    
                 $query->bindValue(':pizza', $name, PDO::PARAM_STR);    
                 $query->execute();
                 $result = $query->fetch();
@@ -29,7 +33,8 @@
 
                     <?php die();
                 }        
-                echo "<h2 class='mt-5'>".$result['name']."</h2>";    
+                echo "<h2 class='mt-5'>".$result['name']."</h2>"; 
+                echo "<p>".$result['category']."<p>"; 
                 echo "<img src='assets/".$result['image']."' alt=".$result['name'].">";
                 
             }
@@ -37,7 +42,9 @@
         <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
     </div>
     <div class="boxPrice col-md-6">
-        <?php  
+        <h3>Description</h3>
+        <p><?= $result['description'] ?></p>
+        <?php
             if (isset($_GET['name'])) {
                 $name = htmlspecialchars($_GET['name']);
                 // $name = $db->quote($name);           
@@ -51,14 +58,14 @@
                 
                 $getSize->bindValue(':pizza', $name, PDO::PARAM_STR);    
                 $getSize->execute();
-                $result = $getSize->fetchAll(); 
+                $resultat = $getSize->fetchAll(); 
                 
             }   
             ?>
         <select class='custom-select' name="size" id="size">
             <option selected>Nos tailles</option>
             <?php
-                foreach ($result as $size) { ?>
+                foreach ($resultat as $size) { ?>
                     <option value="<?=$size['taille']?>"><?= strtoupper($size['taille'])?></option>;
             <?php  } ?>
             
@@ -70,7 +77,7 @@
             <?php 
                 $i = 0;
                 $j = 10;
-                foreach ($result as $supp) { ?>
+                foreach ($resultat as $supp) { ?>
                     <span class="supp" id=<?= $i?>>+<?= $supp['supplement'] ?> €</span> 
                     <span id=<?= $j?> class="total">Total : <?= $supp['total'] ?> €</span>                    
             <?php 

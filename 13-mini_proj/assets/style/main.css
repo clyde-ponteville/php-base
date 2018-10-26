@@ -6,8 +6,6 @@ body{
     background-image: url('../img/background.jpg');
     color: #FFF;
     background-attachment: fixed;
-    
-
 }
 
 .card-body{
@@ -82,4 +80,11 @@ a:link{
 .priceSingle{
     display: flex;
     flex-direction: column;
+}
+.priceSingle span{
+    padding: .2rem;
+}
+
+.custom-select{
+    margin-bottom: .7rem;
 }
