@@ -18,7 +18,7 @@
         ?>
         <div class="mt-3 sizeAdd">
             <?php foreach ($result as $value) { ?>
-                    <label for="size_<?= $value['name'] ?>"><?= strtoupper($value['name']) ?></label><input name="<?= $value['id']?>" type="checkbox" id="size_<?= $value['name'] ?>">
+                    <label class="lblCheck" for="size_<?= $value['name'] ?>"><?= strtoupper($value['name']) ?></label><input name="<?= $value['id']?>" type="checkbox" id="size_<?= $value['name'] ?>">
             <?php } ?>            
             
         </div>
@@ -29,7 +29,7 @@
                 $dataCategory = $getCategory->fetchAll();
 
                 foreach ($dataCategory as $category) { ?>
-                    <option value="<?= $category['id'] ?>"><?= strtoupper($category['name']) ?></option>
+                    <option value="<?= $category['id'] ?>"><?= ucfirst($category['name']) ?></option>
                 <?php }
             ?>
         </select>
@@ -41,14 +41,53 @@
     </form>
 
     <?php   
+//Erreur formulaire
+    if (isset($_GET)) {
+
+        if (isset($_GET['errName']) == 'name') {
+            ?>
+            <div class="alert alert-danger" role="alert">
+                Le nom n'est pas valide !
+            </div>
+        <?php
+        }
+        if (isset($_GET['errPrice']) == 'price') {
+            ?>
+            <div class="alert alert-danger" role="alert">
+                Le prix n'est pas valide !
+            </div>
+        <?php
+        }
+        if (isset($_GET['errCat']) == 'category') {
+            ?>
+            <div class="alert alert-danger" role="alert">
+                La categorie n'est pas valide !
+            </div>
+        <?php
+        }
+        if (isset($_GET['errImg']) == 'image') {
+            ?>
+            <div class="alert alert-danger" role="alert">
+                L'image n'est pas valide !
+            </div>
+        <?php
+        }
+        if (isset($_GET['errDesc']) == 'description') {
+            ?>
+            <div class="alert alert-danger" role="alert">
+                La description n'est pas valide !
+            </div>
+        <?php
+        }
+    }
         
-        if (isset($_GET['done']) && is_numeric($_GET['done'])) {            
-            $done = $_GET['done'];
+        if (isset($_GET['done'])) {            
+            $done = $_GET['done'];            
             switch ($done) {
                 case '0':
                 ?>
                     <div class="alert alert-danger" role="alert">
-                        La pizza n'a pas été ajouté ! 
+                        La pizza n'a pas été ajouté !
                     </div>
                 <?php
                     break;
@@ -59,9 +98,6 @@
                         Votre pizza a bien été ajouté ! ☺
                     </div>
                 <?php
-                    break;
-                default:
-                    # code...
                     break;
             }
             
