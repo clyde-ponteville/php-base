@@ -17,11 +17,8 @@ body{
 
 .pizza{
     cursor: pointer;
-    
 }
-.list:last-child{
-    margin-bottom: 5rem;
-}
+
 .priceList{    
     position: absolute;    
     bottom: 0;
@@ -95,4 +92,14 @@ a:link{
     margin-left: .5rem;
     width: 20px;
     height: 20px;
+}
+
+.error{
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.error span{
+    font-weight: 700;
+    font-size: 1.2rem;
 }

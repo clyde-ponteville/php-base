@@ -39,7 +39,9 @@
                 
             }
         ?>
-        <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
+        <div class="py-3">
+            <a class="btn btn-primary" href="pizza_list.php">Retour à la liste des pizzas</a>
+        </div>
     </div>
     <div class="boxPrice col-md-6">
         <h3>Description</h3>
