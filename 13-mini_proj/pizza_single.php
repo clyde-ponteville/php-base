@@ -34,7 +34,7 @@
                     <?php die();
                 }        
                 echo "<h2 class='mt-5'>".$result['name']."</h2>"; 
-                echo "<p>".$result['category']."<p>"; 
+                echo "<p>".$result['category']."</p>"; 
                 echo "<img src='assets/".$result['image']."' alt=".$result['name'].">";
                 
             }

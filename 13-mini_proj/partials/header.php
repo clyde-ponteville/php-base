@@ -18,7 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/style/sticky-footer-navbar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-    <link href="assets/style/main.css" rel="stylesheet">
+    <link href="assets/style/main.css" rel="stylesheet">    
 
 </head>
 
