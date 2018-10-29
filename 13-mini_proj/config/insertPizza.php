@@ -63,11 +63,8 @@ if (!empty($_POST)) {
     }
     // Vérifier la description
     if (empty($description)) {
-        $errors['4'] = 'errDesc=description';
-        
+        $errors['4'] = 'errDesc=description';        
     }
-
-    
 
     if (empty($errors)) {
         
